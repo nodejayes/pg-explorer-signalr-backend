@@ -11,6 +11,5 @@ RUN dotnet build "PgExplorerBackend.csproj" -c Release -o /app/build
 
 WORKDIR /app/build
 COPY ng-jff-ui/dist/client /app/build/client
-RUN ls -lah /app/build/client
 EXPOSE 5000
 ENTRYPOINT ["dotnet", "PgExplorerBackend.dll"]
