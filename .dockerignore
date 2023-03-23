@@ -21,5 +21,7 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
+ng-jff-ui
+!ng-jff-ui/dist
 LICENSE
 README.md

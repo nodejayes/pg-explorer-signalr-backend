@@ -1,7 +1,9 @@
 ﻿using BackendTest.Hubs;
 using Microsoft.AspNetCore.SignalR;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions{
+    WebRootPath = "client"
+});
 builder.Services.AddSignalR().AddMessagePackProtocol();
 builder.Services.AddCors(o =>
 {
@@ -12,5 +14,6 @@ builder.Services.AddCors(o =>
 });
 var app = builder.Build();
 app.UseCors();
+app.UseStaticFiles();
 app.MapHub<ChatHub>("/chatHub");
 app.Run("http://0.0.0.0:5000");

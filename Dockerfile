@@ -3,12 +3,14 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["BackendTest.csproj", "./"]
-RUN dotnet restore "BackendTest.csproj"
+COPY ["PgExplorerBackend.csproj", "./"]
+RUN dotnet restore "PgExplorerBackend.csproj"
 COPY . .
 WORKDIR "/src/"
-RUN dotnet build "BackendTest.csproj" -c Release -o /app/build
+RUN dotnet build "PgExplorerBackend.csproj" -c Release -o /app/build
 
 WORKDIR /app/build
+COPY ng-jff-ui/dist/client /app/build/client
+RUN ls -lah /app/build/client
 EXPOSE 5000
-ENTRYPOINT ["dotnet", "BackendTest.dll"]
+ENTRYPOINT ["dotnet", "PgExplorerBackend.dll"]
