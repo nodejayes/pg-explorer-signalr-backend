@@ -14,18 +14,22 @@
 
     <ItemGroup>
       <Compile Remove="ng-jff-ui\**" />
+      <Compile Remove="client\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="ng-jff-ui\**" />
+      <EmbeddedResource Remove="client\**" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="ng-jff-ui\**" />
+      <None Remove="client\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Content Remove="ng-jff-ui\**" />
+      <Content Remove="client\**" />
     </ItemGroup>
 
     <ItemGroup>
